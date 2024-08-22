@@ -1,0 +1,146 @@
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage[english,russian]{babel}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}
+
+\begin{document}
+
+\noindent 1. Математические построения. \\ \par
+
+\noindent Исходные уравнения.
+\begin{align*}
+	& m\cdot\ddot{x} =-\frac{x}{L}\cdot T, \\
+	& m\cdot\ddot{y} =-\frac{y}{L}\cdot T - m\cdot g; \\
+	\\
+	& m = 1, \\
+	& L = \sqrt{x^2 + y^2}\ \ \text{---\ \ const}, \\
+	& T = -\frac{y}{L}\cdot m\cdot g, \\
+	& g(t) = 9.81 + 0.05\cdot\sin(2\cdot\pi\cdot t).
+\end{align*} \\ \par
+
+\noindent Преобразования уравнений.
+\begin{align*}
+	& m\cdot\ddot{x} = -\frac{x}{L}\cdot\Big( -\frac{y}{L}\cdot m\cdot g\Big), \\
+	& m\cdot\ddot{y} = -\frac{y}{L}\cdot\Big( -\frac{y}{L}\cdot m\cdot g\Big) - m\cdot g; \\
+	\\
+	& m\cdot\ddot{x} = \frac{x\cdot y}{x^2 + y^2}\cdot m\cdot g, \\
+	& m\cdot\ddot{y} = \frac{y^2}{x^2 + y^2}\cdot m\cdot g - m\cdot g; \\
+	\\
+	& \ddot{x} = \frac{x\cdot y}{x^2 + y^2}\cdot g, \\
+	& \ddot{y} = -\frac{x^2}{x^2 + y^2}\cdot g.
+\end{align*} \newpage
+
+\noindent Начальные условия.
+\begin{gather*}
+	x_0 = 3,\quad y_0 = -4;\quad v_0 = 1. \\
+	L = \sqrt{9 + 16} = 5,\quad L^2 = 25. \\
+	\\
+	\dot{x}_0 = \frac{y_0}{L}\cdot v_0,\quad\dot{y}_0 = -\frac{x_0}{L}\cdot v_0, \\
+	\dot{x}_0 = -\frac{4}{5},\quad\dot{y}_0 = -\frac{3}{5}.
+\end{gather*} \\ \par
+
+\noindent Задача Коши для исходных уравнений.
+\begin{gather*}
+	\ddot{x}(t)=\frac{x(t)\cdot y(t)}{25}\cdot g(t),\quad \ddot{y}(t)=-\frac{x^2(t)}{25}\cdot g(t), \\
+	g(t) = 9.81 + 0.05\cdot\sin(2\cdot\pi\cdot t),\quad t\in[0,\ 100]; \\ 
+	\\
+	x_0 = 3,\quad y_0 = -4; \\
+	\dot{x}_0 = -\frac{4}{5},\quad\dot{y}_0 = -\frac{3}{5}.
+\end{gather*} \\ \par
+
+\noindent Задача Коши для исходных уравнений в $\mathbb{R}^4$.
+\begin{gather*}
+	X(t) = \left(\begin{array}{c}
+		u(t) \\
+		v(t) \\
+		x(t) \\
+		y(t)
+	\end{array}\right),\quad\dot{X} = F(X),\quad
+	F(X)(t) = \left(\begin{array}{c}
+		\frac{x(t)\cdot y(t)}{25}\cdot g(t) \\
+		-\frac{x^2(t)}{25}\cdot g(t) \\
+		u(t) \\
+		v(t)
+	\end{array}\right), \\
+	g(t) = 9.81 + 0.05\cdot\sin(2\cdot\pi\cdot t),\quad t\in[0,\ 100]; \\
+	\\
+	X_0 = \left(\begin{array}{c}
+		-\frac{4}{5} \\
+		-\frac{3}{5} \\
+		3 \\
+		-4
+	\end{array}\right).
+\end{gather*} \newpage
+
+\noindent Эталонное уравнение.
+\begin{gather*}
+%	x = L\cdot\sin\varphi, \\
+%	y = -L\cdot\cos\varphi; \\
+%	\\
+%	\dot{x} = L\cdot\cos\varphi\cdot\dot{\varphi}, \\
+%	\dot{y} = L\cdot\sin\varphi\cdot\dot{\varphi}; \\
+%	\\
+%	\ddot{x} = -L\cdot(\sin\varphi\cdot\dot{\varphi}^2 + \cos\varphi\cdot\ddot{\varphi}), \\
+%	\ddot{y} = L\cdot(\cos\varphi\cdot\dot{\varphi}^2 + \sin\varphi\cdot\ddot{\varphi}). \\
+%	\\
+%	L\cdot\left(\begin{array}{cc}
+%		\cos\varphi &  -\sin\varphi \\
+%		\sin\varphi & \cos\varphi
+%	\end{array}\right)\cdot
+%	\left(\begin{array}{c}
+%		\ddot{\varphi} \\
+%		\dot{\varphi}^2
+%	\end{array}\right)=
+%	\left(\begin{array}{cc}
+%		\cos\varphi & -\sin\varphi \\
+%		\sin\varphi & \cos\varphi
+%	\end{array}\right)\cdot
+%	\left(\begin{array}{c}
+%		-\sin\varphi\cdot g \\
+%		0
+%	\end{array}\right), \\
+%	\\
+	L\cdot\ddot{\varphi} = -\sin\varphi\cdot g.
+\end{gather*} \\ \par
+
+\noindent Задача Коши для эталонного уравнения.
+\begin{gather*}
+	\ddot{\varphi}(t) = -\frac{\sin\varphi(t)}{L}\cdot g(t), \\
+	g(t) = 9.81 + 0.05\cdot\sin(2\cdot\pi\cdot t),\quad t\in[1,\ 100]; \\
+	\\
+	\varphi_0 = \arctg\frac{3}{4},\quad\dot{\varphi}_0 = -\frac{1}{5}.
+\end{gather*} \\ \par
+
+\noindent Задача Коши для эталонного уравнения в $\mathbb{R}^2$.
+\begin{gather*}
+	X(t) = \left(\begin{array}{c}
+		\psi(t) \\
+		\varphi(t)
+	\end{array}\right),\quad\dot{X} = F(X),\quad
+		F(X)(t) = \left(\begin{array}{c}
+		-\frac{\sin\varphi(t)}{L}\cdot g(t) \\
+		\psi(t)
+	\end{array}\right), \\
+	g(t) = 9.81 + 0.05\cdot\sin(2\cdot\pi\cdot t),\quad t\in[0,\ 100]; \\
+	\\
+	X_0 = \left(\begin{array}{c}
+		-\frac{1}{5} \\
+		\arctg\frac{3}{4}
+	\end{array}\right).
+\end{gather*} \\ \newpage
+
+\noindent 2. Модули реализации численного решения. \\ \par
+\noindent Модули реализованны в MATLAB 2023a: \\
+- \textbf{solution.m} - скрипт для решения заданных дифференциальных уравнений, выведенных в прямоугольной системе координат; \\
+- \textbf{reference.m} - скрипт для решения широко используемого дифференциального уравнения динамики маятника, выведенного в полярной системе координат; \\
+- \textbf{rk4.m} - функция интегрирования на одном шаге методом Рунге-Кутты 4-го порядка; \\
+- \textbf{Pendulum.m} - класс - решение задания путём ООП; \\
+- \textbf{PendulumTest.m} - класс тестов ML для тестирования методов интегрирования (решения) уравнений динамики, применяемых в классе Pendulum.
+
+
+
+\end{document}
